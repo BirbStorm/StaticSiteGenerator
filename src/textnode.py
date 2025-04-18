@@ -27,8 +27,7 @@ class TextNode():
         return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
 
 def text_node_to_html_node(node):
-    result = ''
-    match node.TextType:
+    match node.text_type:
         case TextType.TEXT:
             return LeafNode(None, node.text)
         case TextType.LINK:
@@ -43,4 +42,3 @@ def text_node_to_html_node(node):
             return LeafNode("code", node.text)
         case _:
             raise ValueError(f"invalid type: {node.TextType}")  
-    return result
